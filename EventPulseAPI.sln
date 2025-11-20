@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36603.0 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventPulseAPI", "EventPulseAPI\EventPulseAPI.csproj", "{DAB13325-36AC-483D-9EAF-18ACF1FFD258}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventPulseAPI.Data", "EventPulseAPI.Data\EventPulseAPI.Data.csproj", "{2DD6B4EB-992C-4E08-9B34-39A773834F03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventPulseAPI.Repository", "EventPulseAPI.Repository\EventPulseAPI.Repository.csproj", "{0596C51B-4E0D-4156-A8C4-61BE4A0832DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventPulseAPI.Services", "EventPulseAPI.Service\EventPulseAPI.Services.csproj", "{9B0E815C-73B4-4589-948E-2E5E23351AC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventPulseAPI.Common", "EventPulseAPI.Common\EventPulseAPI.Common.csproj", "{F77935E4-10AD-474D-8B93-EE8300B90327}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventPulseAPI.Dto", "EventPulseAPI.Dto\EventPulseAPI.Dto.csproj", "{166980EF-C25F-4C93-A7E5-12090F19E925}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DAB13325-36AC-483D-9EAF-18ACF1FFD258}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAB13325-36AC-483D-9EAF-18ACF1FFD258}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAB13325-36AC-483D-9EAF-18ACF1FFD258}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAB13325-36AC-483D-9EAF-18ACF1FFD258}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DD6B4EB-992C-4E08-9B34-39A773834F03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DD6B4EB-992C-4E08-9B34-39A773834F03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DD6B4EB-992C-4E08-9B34-39A773834F03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DD6B4EB-992C-4E08-9B34-39A773834F03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0596C51B-4E0D-4156-A8C4-61BE4A0832DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0596C51B-4E0D-4156-A8C4-61BE4A0832DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0596C51B-4E0D-4156-A8C4-61BE4A0832DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0596C51B-4E0D-4156-A8C4-61BE4A0832DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B0E815C-73B4-4589-948E-2E5E23351AC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B0E815C-73B4-4589-948E-2E5E23351AC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B0E815C-73B4-4589-948E-2E5E23351AC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B0E815C-73B4-4589-948E-2E5E23351AC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F77935E4-10AD-474D-8B93-EE8300B90327}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F77935E4-10AD-474D-8B93-EE8300B90327}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F77935E4-10AD-474D-8B93-EE8300B90327}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F77935E4-10AD-474D-8B93-EE8300B90327}.Release|Any CPU.Build.0 = Release|Any CPU
+		{166980EF-C25F-4C93-A7E5-12090F19E925}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{166980EF-C25F-4C93-A7E5-12090F19E925}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{166980EF-C25F-4C93-A7E5-12090F19E925}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{166980EF-C25F-4C93-A7E5-12090F19E925}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {263CE6A8-D257-4B2A-A4D1-BC3C444AC910}
+	EndGlobalSection
+EndGlobal

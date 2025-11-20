@@ -1,0 +1,6 @@
+@EventPulseAPI_HostAddress = http://localhost:5235
+
+GET {{EventPulseAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
