@@ -33,7 +33,11 @@ namespace EventPulseAPI.Controllers
         public async Task<IActionResult> Submit([FromBody] FeedbackCreateDto dto)
         {
             var result = await _feedbackService.SubmitFeedbackAsync(dto, GetCurrentUser());
-            if (!result.Success) return BadRequest(result);
+            if (!result.Success)
+            {
+                if (result.StatusCode == 409) return Conflict(result);
+                return BadRequest(result);
+            }
             return Ok(result);
         }
 

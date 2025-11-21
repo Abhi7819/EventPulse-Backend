@@ -12,6 +12,7 @@ namespace EventPulseAPI.Services.Services
     {
         private readonly IUserRepository _userRepo;
         private readonly IJwtTokenGenerator _jwt;
+
         public UserService(IUserRepository userRepo, IJwtTokenGenerator jwt)
         {
             _userRepo = userRepo;
@@ -23,30 +24,35 @@ namespace EventPulseAPI.Services.Services
             var user = await _userRepo.GetByEmailAsync(email);
 
             if (user == null)
-                return new ApiResponse(false, "User not found");
+                return new ApiResponse(false, "User not found", statusCode: 404);
 
             if (!string.Equals(email, user.Email, StringComparison.Ordinal))
-                return new ApiResponse(false, "Email case mismatch. Enter email exactly as registered.");
+                return new ApiResponse(false, "Email case mismatch. Enter email exactly as registered.", statusCode: 400);
 
             if (!PasswordHasher.VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
-                return new ApiResponse(false, "Invalid password");
+                return new ApiResponse(false, "Invalid password", statusCode: 401);
 
             var token = _jwt.GenerateToken(user);
 
-            return new ApiResponse(true, "Login successful", new { Token = token, Role = user.Role, RoleName = user.Role.ToString() });
+            return new ApiResponse(
+                true,
+                "Login successful",
+                new { Token = token, Role = user.Role, RoleName = user.Role.ToString() },
+                statusCode: 200
+            );
         }
 
         public async Task<ApiResponse> RegisterAsync(UserRegisterDto dto)
         {
             if (!Enum.IsDefined(typeof(UserRole), dto.Role))
             {
-                return new ApiResponse(false, "Invalid role. Allowed roles are: Admin, Organizer, Attendee.");
+                return new ApiResponse(false, "Invalid role. Allowed roles are: Admin, Organizer, Attendee.", statusCode: 400);
             }
 
             var existingUser = await _userRepo.GetByEmailAsync(dto.Email);
             if (existingUser != null)
             {
-                return new ApiResponse(false, "Email already exists");
+                return new ApiResponse(false, "Email already exists", statusCode: 409);
             }
 
             PasswordHasher.CreatePasswordHash(dto.Password, out byte[] hash, out byte[] salt);
@@ -63,7 +69,12 @@ namespace EventPulseAPI.Services.Services
             await _userRepo.AddUserAsync(newUser);
             await _userRepo.SaveChangesAsync();
 
-            return new ApiResponse(true, "User registered successfully", new { UserId = newUser.Id, Role = newUser.Role, RoleName = newUser.Role.ToString() });
+            return new ApiResponse(
+                true,
+                "User registered successfully",
+                new { UserId = newUser.Id, Role = newUser.Role, RoleName = newUser.Role.ToString() },
+                statusCode: 201
+            );
         }
     }
 }

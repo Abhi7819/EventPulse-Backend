@@ -24,7 +24,7 @@ namespace EventPulseAPI.Services.Services
         {
             var ev = await _eventRepo.GetByIdAsync(eventId);
             if (ev == null)
-                return new ApiResponse(false, "Event not found");
+                return new ApiResponse(false, "Event not found", statusCode: 404);
 
             var sessions = await _sessionRepo.GetSessionsWithFeedbackByEventIdAsync(eventId);
 
@@ -58,13 +58,13 @@ namespace EventPulseAPI.Services.Services
         public async Task<ApiResponse> SubmitFeedbackAsync(FeedbackCreateDto dto, User currentUser)
         {
             if (currentUser.Role != UserRole.Attendee)
-                return new ApiResponse(false, "Only attendees can submit feedback");
+                return new ApiResponse(false, "Only attendees can submit feedback", statusCode: 403);
 
             var session = await _sessionRepo.GetByIdAsync(dto.SessionId);
-            if (session == null) return new ApiResponse(false, "Session not found");
+            if (session == null) return new ApiResponse(false, "Session not found", statusCode: 404);
 
             var existing = await _repo.GetBySessionAndAttendeeAsync(dto.SessionId, currentUser.Id);
-            if (existing != null) return new ApiResponse(false, "Feedback already submitted");
+            if (existing != null) return new ApiResponse(false, "Feedback already submitted", statusCode: 409);
 
             var feedback = new Feedback
             {
